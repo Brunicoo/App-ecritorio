@@ -25,5 +25,23 @@ namespace AppEsc
             this.Hide();
             form3.Show();
         }
+
+        private void AddUsersButton_Click(object sender, EventArgs e)
+        {
+            AddUser addUser = new AddUser();
+            addUser.StartPosition = FormStartPosition.CenterParent;
+
+            addUser.Show();
+            this.Hide();
+        }
+
+        private void AddProjectsButton_Click(object sender, EventArgs e)
+        {
+            CreateProject createProject = new CreateProject();
+            createProject.StartPosition = FormStartPosition.CenterParent;
+
+            createProject.Show();
+            this.Hide();
+        }
     }
 }

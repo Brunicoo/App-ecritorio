@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             groupBox1 = new GroupBox();
-            signUpButton = new Button();
             signInButton = new Button();
             passwordTextBox = new TextBox();
             pictureBox3 = new PictureBox();
@@ -47,7 +46,6 @@
             // 
             groupBox1.BackgroundImage = Properties.Resources.grunge_fondo_azul;
             groupBox1.CausesValidation = false;
-            groupBox1.Controls.Add(signUpButton);
             groupBox1.Controls.Add(signInButton);
             groupBox1.Controls.Add(passwordTextBox);
             groupBox1.Controls.Add(pictureBox3);
@@ -60,15 +58,6 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Tag = "";
-            // 
-            // signUpButton
-            // 
-            signUpButton.Location = new Point(240, 354);
-            signUpButton.Name = "signUpButton";
-            signUpButton.Size = new Size(84, 27);
-            signUpButton.TabIndex = 6;
-            signUpButton.Text = "Sign up";
-            signUpButton.UseVisualStyleBackColor = true;
             // 
             // signInButton
             // 
@@ -141,7 +130,9 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Form1";
+            Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -156,7 +147,6 @@
         private TextBox userTextBox;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
-        private Button signUpButton;
         private Button signInButton;
         private TextBox passwordTextBox;
         private PictureBox pictureBox3;

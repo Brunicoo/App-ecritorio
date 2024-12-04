@@ -1,6 +1,6 @@
 ﻿namespace AppEsc
 {
-    partial class SignUp
+    partial class AddUser
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUp));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUser));
             groupBox1 = new GroupBox();
-            CreateUser = new Button();
-            NewPasswordTextBox = new TextBox();
+            backButton = new Button();
+            createUserButton = new Button();
+            newPasswordTextBox = new TextBox();
             pictureBox3 = new PictureBox();
-            NewUserTextBox = new TextBox();
+            newUserTextBox = new TextBox();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
@@ -46,10 +47,11 @@
             // 
             groupBox1.BackgroundImage = Properties.Resources.grunge_fondo_azul;
             groupBox1.CausesValidation = false;
-            groupBox1.Controls.Add(CreateUser);
-            groupBox1.Controls.Add(NewPasswordTextBox);
+            groupBox1.Controls.Add(backButton);
+            groupBox1.Controls.Add(createUserButton);
+            groupBox1.Controls.Add(newPasswordTextBox);
             groupBox1.Controls.Add(pictureBox3);
-            groupBox1.Controls.Add(NewUserTextBox);
+            groupBox1.Controls.Add(newUserTextBox);
             groupBox1.Controls.Add(pictureBox2);
             groupBox1.Controls.Add(pictureBox1);
             groupBox1.Location = new Point(180, 16);
@@ -59,23 +61,34 @@
             groupBox1.TabStop = false;
             groupBox1.Tag = "";
             // 
-            // CreateUser
+            // backButton
             // 
-            CreateUser.Location = new Point(171, 353);
-            CreateUser.Name = "CreateUser";
-            CreateUser.Size = new Size(84, 27);
-            CreateUser.TabIndex = 6;
-            CreateUser.Text = "Create user";
-            CreateUser.UseVisualStyleBackColor = true;
+            backButton.Location = new Point(240, 354);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(84, 27);
+            backButton.TabIndex = 6;
+            backButton.Text = "Back";
+            backButton.UseVisualStyleBackColor = true;
+            backButton.Click += backButton_Click;
             // 
-            // NewPasswordTextBox
+            // createUserButton
             // 
-            NewPasswordTextBox.Location = new Point(135, 297);
-            NewPasswordTextBox.Name = "NewPasswordTextBox";
-            NewPasswordTextBox.PasswordChar = '*';
-            NewPasswordTextBox.PlaceholderText = "Introduce password";
-            NewPasswordTextBox.Size = new Size(189, 23);
-            NewPasswordTextBox.TabIndex = 4;
+            createUserButton.Location = new Point(75, 354);
+            createUserButton.Name = "createUserButton";
+            createUserButton.Size = new Size(84, 27);
+            createUserButton.TabIndex = 5;
+            createUserButton.Text = "Create user";
+            createUserButton.UseVisualStyleBackColor = true;
+            createUserButton.Click += createUserButton_Click;
+            // 
+            // newPasswordTextBox
+            // 
+            newPasswordTextBox.Location = new Point(135, 297);
+            newPasswordTextBox.Name = "newPasswordTextBox";
+            newPasswordTextBox.PasswordChar = '*';
+            newPasswordTextBox.PlaceholderText = "Introduce password";
+            newPasswordTextBox.Size = new Size(189, 23);
+            newPasswordTextBox.TabIndex = 4;
             // 
             // pictureBox3
             // 
@@ -88,13 +101,13 @@
             pictureBox3.TabIndex = 3;
             pictureBox3.TabStop = false;
             // 
-            // NewUserTextBox
+            // newUserTextBox
             // 
-            NewUserTextBox.Location = new Point(135, 218);
-            NewUserTextBox.Name = "NewUserTextBox";
-            NewUserTextBox.PlaceholderText = "Introduce user";
-            NewUserTextBox.Size = new Size(189, 23);
-            NewUserTextBox.TabIndex = 2;
+            newUserTextBox.Location = new Point(135, 218);
+            newUserTextBox.Name = "newUserTextBox";
+            newUserTextBox.PlaceholderText = "Introduce user";
+            newUserTextBox.Size = new Size(189, 23);
+            newUserTextBox.TabIndex = 2;
             // 
             // pictureBox2
             // 
@@ -118,15 +131,17 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // SignUp
+            // AddUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.backInicio;
             ClientSize = new Size(800, 450);
             Controls.Add(groupBox1);
-            Name = "SignUp";
-            Text = "SignUp";
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Name = "AddUser";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "AddUser";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -138,11 +153,13 @@
         #endregion
 
         private GroupBox groupBox1;
-        private Button CreateUser;
-        private TextBox NewPasswordTextBox;
+        private Button signInButton;
+        private TextBox newPasswordTextBox;
         private PictureBox pictureBox3;
-        private TextBox NewUserTextBox;
+        private TextBox newUserTextBox;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
+        private Button createUserButton;
+        private Button backButton;
     }
 }

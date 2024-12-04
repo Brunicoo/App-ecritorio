@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace AppEsc
 {
-    internal class User
+    internal class Task
     {
-        String userName;
-        String password;
-        List<User> users;
+        String taskname;
+        DateTime startDate;
+        DateTime endDate;
+        List<subTask> subTasks;
     }
 }
