@@ -46,7 +46,7 @@
             viewUsersButton.Name = "viewUsersButton";
             viewUsersButton.Size = new Size(135, 64);
             viewUsersButton.TabIndex = 2;
-            viewUsersButton.Text = "View users";
+            viewUsersButton.Text = "Edit projects";
             viewUsersButton.UseVisualStyleBackColor = false;
             // 
             // viewprojectsButton

@@ -42,6 +42,7 @@ namespace AppEsc
 
             createProject.Show();
             this.Hide();
+
         }
     }
 }

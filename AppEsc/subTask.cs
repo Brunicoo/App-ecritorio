@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppEsc
 {
-    internal class subTask
+    internal class SubTask
     {
         String name;
         DateTime startDate;

@@ -8,9 +8,17 @@ namespace AppEsc
 {
     internal class Task
     {
-        String taskname;
-        DateTime startDate;
-        DateTime endDate;
-        List<subTask> subTasks;
+        public String taskname;
+        public DateTime startDate;
+        public DateTime endDate;
+        public enum TaskState {toDo, inProgress, done};
+        public TaskState state;
+        public List<SubTask> subTasks;
+        public List<User> collaborators = new List<User>();
+
+        public void changeTaskState(TaskState newState)
+        {
+            this.state = newState;
+        }
     }
 }
