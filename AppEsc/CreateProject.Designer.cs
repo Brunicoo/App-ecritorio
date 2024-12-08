@@ -45,6 +45,7 @@
             startDateTask = new DateTimePicker();
             label5 = new Label();
             endDateTask = new DateTimePicker();
+            backButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -199,12 +200,23 @@
             endDateTask.Size = new Size(200, 23);
             endDateTask.TabIndex = 17;
             // 
+            // backButton
+            // 
+            backButton.Location = new Point(12, 12);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(75, 23);
+            backButton.TabIndex = 18;
+            backButton.Text = "Back";
+            backButton.UseVisualStyleBackColor = true;
+            backButton.Click += backButton_Click;
+            // 
             // CreateProject
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.backInicio;
             ClientSize = new Size(800, 450);
+            Controls.Add(backButton);
             Controls.Add(endDateTask);
             Controls.Add(label5);
             Controls.Add(startDateTask);
@@ -250,5 +262,6 @@
         private DateTimePicker startDateTask;
         private Label label5;
         private DateTimePicker endDateTask;
+        private Button backButton;
     }
 }

@@ -39,7 +39,8 @@ namespace AppEsc
                 if (projectExists)
                 {
                     MessageBox.Show("The project already exists", "Warning", MessageBoxButtons.OK);
-                } else
+                }
+                else
                 {
                     Project p = new Project();
                     Task t = new Task();
@@ -48,14 +49,14 @@ namespace AppEsc
                     p.description = descriptionTextBox.Text;
                     p.startDate = startDateProject.Value;
                     p.endDate = endDateProject.Value;
-                    p.changeState(Project.ProjectState.toDo); 
+                    p.changeState(Project.ProjectState.toDo);
 
                     t.taskname = taskNameTextBox.Text;
                     t.startDate = startDateTask.Value;
                     t.endDate = endDateTask.Value;
                     t.changeTaskState(Task.TaskState.toDo);
 
-                    foreach(String collaboratorName in checkedListBoxCollaborators.CheckedItems)
+                    foreach (String collaboratorName in checkedListBoxCollaborators.CheckedItems)
                     {
                         User selectedUser = User.users.Find(user => user.userName == collaboratorName);
 
@@ -81,6 +82,15 @@ namespace AppEsc
         private void checkedListBoxCollaborators_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.StartPosition = FormStartPosition.CenterParent;
+
+            f2.Show();
+            this.Hide();
         }
     }
 }

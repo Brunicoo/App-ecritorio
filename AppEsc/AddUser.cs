@@ -19,7 +19,11 @@ namespace AppEsc
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Form2 f2 = new Form2();
+            f2.StartPosition = FormStartPosition.CenterParent;
+
+            f2.Show();
+            this.Hide();
         }
 
         private void createUserButton_Click(object sender, EventArgs e)
