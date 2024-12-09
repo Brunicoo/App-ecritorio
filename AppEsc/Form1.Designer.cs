@@ -132,7 +132,6 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Form1";
-            Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

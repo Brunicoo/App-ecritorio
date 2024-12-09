@@ -29,10 +29,11 @@ namespace AppEsc
         private void createUserButton_Click(object sender, EventArgs e)
         {
 
-            if(newUserTextBox.Text.Equals("") || newPasswordTextBox.Text.Equals(""))
+            if (newUserTextBox.Text.Equals("") || newPasswordTextBox.Text.Equals(""))
             {
                 MessageBox.Show("you must enter the user and password", "Warning", MessageBoxButtons.OK);
-            } else
+            }
+            else
             {
                 String name = newUserTextBox.Text.Trim();
                 String password = newPasswordTextBox.Text.Trim();
@@ -42,7 +43,8 @@ namespace AppEsc
                 if (userExists)
                 {
                     MessageBox.Show("This user exists", "Warning", MessageBoxButtons.OK);
-                } else
+                }
+                else
                 {
                     User user = new User(name, password);
                     User.users.Add(user);
@@ -55,8 +57,8 @@ namespace AppEsc
                     this.Hide();
                 }
 
-              
-            } 
+
+            }
         }
     }
 }

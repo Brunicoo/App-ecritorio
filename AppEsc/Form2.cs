@@ -17,15 +17,6 @@ namespace AppEsc
             InitializeComponent();
         }
 
-        private void buttonProjects_Click(object sender, EventArgs e)
-        {
-            Form3 form3 = new Form3();
-            form3.StartPosition = FormStartPosition.CenterParent;
-
-            this.Hide();
-            form3.Show();
-        }
-
         private void AddUsersButton_Click(object sender, EventArgs e)
         {
             AddUser addUser = new AddUser();
@@ -37,12 +28,29 @@ namespace AppEsc
 
         private void AddProjectsButton_Click(object sender, EventArgs e)
         {
-            CreateProject createProject = new CreateProject();
-            createProject.StartPosition = FormStartPosition.CenterParent;
 
-            createProject.Show();
+            if (User.users.Count <= 0)
+            {
+                MessageBox.Show("Create users before create a project", "Warning", MessageBoxButtons.OK);
+
+            }
+            else
+            {
+                CreateProject createProject = new CreateProject();
+                createProject.StartPosition = FormStartPosition.CenterParent;
+
+                createProject.Show();
+                this.Hide();
+            }
+        }
+
+        private void viewUsersButton_Click(object sender, EventArgs e)
+        {
+            EditProjectscs editProjectscs = new EditProjectscs();
+            editProjectscs.StartPosition = FormStartPosition.CenterParent;
+
+            editProjectscs.Show();
             this.Hide();
-
         }
     }
 }

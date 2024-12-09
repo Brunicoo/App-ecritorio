@@ -48,6 +48,7 @@
             viewUsersButton.TabIndex = 2;
             viewUsersButton.Text = "Edit projects";
             viewUsersButton.UseVisualStyleBackColor = false;
+            viewUsersButton.Click += viewUsersButton_Click;
             // 
             // viewprojectsButton
             // 
@@ -62,7 +63,6 @@
             viewprojectsButton.TabIndex = 1;
             viewprojectsButton.Text = "View projects";
             viewprojectsButton.UseVisualStyleBackColor = false;
-            viewprojectsButton.Click += buttonProjects_Click;
             // 
             // AddUsersButton
             // 
