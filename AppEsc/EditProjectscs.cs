@@ -29,10 +29,10 @@ namespace AppEsc
             {
                 if (project != null)
                 { 
-                    viewProjectsListBox.Items.Add("Name: " + project.name + " | " + " End date: " + project.endDate);
+                    viewProjectsListBox.Items.Add("Name: " + project.name + " // " + " End date: " + project.endDate);
                 }
             }
-            viewProjectsListBox.Font = new Font("Segoe UI", 12);
+            viewProjectsListBox.Font = new Font("Segoe UI", 10);
         }
     }
 }
