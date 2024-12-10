@@ -15,24 +15,53 @@ namespace AppEsc
         public EditProjectscs()
         {
             InitializeComponent();
-            showProjects();
+            showProjects();       
         }
 
         private void viewProjectsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           showTasks();
         }
 
         private void showProjects()
         {
+            viewProjectsListBox.Items.Clear();
             foreach (var project in Project.projects)
             {
                 if (project != null)
-                { 
-                    viewProjectsListBox.Items.Add("Name: " + project.name + " // " + " End date: " + project.endDate);
+                {
+                    viewProjectsListBox.Items.Add(project.name);    
+                }
+                
+            }
+            viewProjectsListBox.Font = new Font("Segoe UI", 20);
+        }
+
+        private void showTasks()
+        {
+            viewTasksListBox.Items.Clear();
+            String name = (String) viewProjectsListBox.SelectedItem;
+            Project projectSelected = Project.projects.Find(p => p.name == name);
+
+            foreach (var task in projectSelected.tasks)
+            {
+                if (task != null)
+                {
+                    viewTasksListBox.Items.Add("{Task name: " + task.taskname + "}");
+                     foreach (var subtask in task.subTasks)
+                    {
+                        if (subtask != null)
+                        {
+                           viewTasksListBox.Items.Add("=> Subtask name: " + subtask.name);
+                        } else 
+                        {
+                            viewTasksListBox.Items.Add("0 subtasks asigned");
+                        }
+                    }
                 }
             }
-            viewProjectsListBox.Font = new Font("Segoe UI", 10);
+            viewTasksListBox.Items.Add("-----------------------------------------------------------");
+            viewTasksListBox.Font = new Font("Segoe UI", 15);
         }
     }
 }

@@ -20,10 +20,7 @@ namespace AppEsc
         private void AddUsersButton_Click(object sender, EventArgs e)
         {
             AddUser addUser = new AddUser();
-            addUser.StartPosition = FormStartPosition.CenterParent;
-
-            addUser.Show();
-            this.Hide();
+            Tools.openNewForm(this, addUser);
         }
 
         private void AddProjectsButton_Click(object sender, EventArgs e)
@@ -37,20 +34,14 @@ namespace AppEsc
             else
             {
                 CreateProject createProject = new CreateProject();
-                createProject.StartPosition = FormStartPosition.CenterParent;
-
-                createProject.Show();
-                this.Hide();
+                Tools.openNewForm(this, createProject);
             }
         }
 
         private void viewUsersButton_Click(object sender, EventArgs e)
         {
             EditProjectscs editProjectscs = new EditProjectscs();
-            editProjectscs.StartPosition = FormStartPosition.CenterParent;
-
-            editProjectscs.Show();
-            this.Hide();
+            Tools.openNewForm(this, editProjectscs);
         }
     }
 }

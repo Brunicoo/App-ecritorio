@@ -15,15 +15,10 @@ namespace AppEsc
             }
             else
             {
-                //verificar si el usuario esta en el array y si la contrasel a
                 if (userTextBox.Text.Trim().Equals("Admin") && passwordTextBox.Text.Trim().Equals("1234"))
                 {
                     Form2 form2 = new Form2();
-                    form2.StartPosition = FormStartPosition.CenterParent;
-
-                    form2.Show();
-                    this.Hide();
-                    
+                    Tools.openNewForm(this, form2);
                 }
                 else
                 {
@@ -35,6 +30,6 @@ namespace AppEsc
         private void userTextBox_TextChanged(object sender, EventArgs e)
         {
 
-        }    
+        }
     }
 }

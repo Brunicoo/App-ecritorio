@@ -87,10 +87,7 @@ namespace AppEsc
         private void backButton_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
-            f2.StartPosition = FormStartPosition.CenterParent;
-
-            f2.Show();
-            this.Hide();
+            Tools.openNewForm(this, f2);
         }
     }
 }

@@ -33,6 +33,7 @@
             label1 = new Label();
             label2 = new Label();
             viewTasksListBox = new ListBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // viewProjectsListBox
@@ -80,6 +81,15 @@
             viewTasksListBox.Size = new Size(324, 379);
             viewTasksListBox.TabIndex = 3;
             // 
+            // button1
+            // 
+            button1.Location = new Point(12, 9);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 4;
+            button1.Text = "back";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // EditProjectscs
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -87,10 +97,13 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(viewTasksListBox);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(viewProjectsListBox);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EditProjectscs";
             Text = "EditProjectscs";
             ResumeLayout(false);
@@ -102,5 +115,6 @@
         private Label label1;
         private Label label2;
         private ListBox viewTasksListBox;
+        private Button button1;
     }
 }

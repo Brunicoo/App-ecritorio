@@ -13,7 +13,7 @@ namespace AppEsc
         public DateTime endDate;
         public enum TaskState {toDo, inProgress, done};
         public TaskState state;
-        public List<SubTask> subTasks;
+        public List<SubTask> subTasks = new List<SubTask>();
         public List<User> collaborators = new List<User>();
 
         public void changeTaskState(TaskState newState)
