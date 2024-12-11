@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppEsc
 {
-    internal class User
+    public class User
     {
         public String userName;
         public String password;

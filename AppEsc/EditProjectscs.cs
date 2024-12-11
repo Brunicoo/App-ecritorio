@@ -15,12 +15,12 @@ namespace AppEsc
         public EditProjectscs()
         {
             InitializeComponent();
-            showProjects();       
+            showProjects();
         }
 
         private void viewProjectsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           showTasks();
+            showTasks();
         }
 
         private void showProjects()
@@ -30,9 +30,9 @@ namespace AppEsc
             {
                 if (project != null)
                 {
-                    viewProjectsListBox.Items.Add(project.name);    
+                    viewProjectsListBox.Items.Add(project.name);
                 }
-                
+
             }
             viewProjectsListBox.Font = new Font("Segoe UI", 20);
         }
@@ -40,22 +40,29 @@ namespace AppEsc
         private void showTasks()
         {
             viewTasksListBox.Items.Clear();
-            String name = (String) viewProjectsListBox.SelectedItem;
+            String name = (String)viewProjectsListBox.SelectedItem;
+
             Project projectSelected = Project.projects.Find(p => p.name == name);
+            if (projectSelected == null)
+            {
+                viewTasksListBox.Items.Add("0 projects selected");
+                return;
+            }
 
             foreach (var task in projectSelected.tasks)
             {
                 if (task != null)
                 {
-                    viewTasksListBox.Items.Add("{Task name: " + task.taskname + "}");
-                     foreach (var subtask in task.subTasks)
+                    viewTasksListBox.Items.Add("{Task name: " + task.taskname + " " + task.state + "}");
+                    foreach (var subtask in task.subTasks)
                     {
                         if (subtask != null)
                         {
-                           viewTasksListBox.Items.Add("=> Subtask name: " + subtask.name);
-                        } else 
+                            viewTasksListBox.Items.Add("=> Subtask name: " + subtask.name);
+                        }
+                        else
                         {
-                            viewTasksListBox.Items.Add("0 subtasks asigned");
+                            viewTasksListBox.Items.Add("0 subtasks assigned");
                         }
                     }
                 }
@@ -63,5 +70,54 @@ namespace AppEsc
             viewTasksListBox.Items.Add("-----------------------------------------------------------");
             viewTasksListBox.Font = new Font("Segoe UI", 15);
         }
+
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            Tools.openNewForm(this, f2);
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            Project projectSelected;
+            String projectName;
+
+            if (viewProjectsListBox.SelectedItem == null)
+            {
+                MessageBox.Show("You must select a project", "WARNING", MessageBoxButtons.OK);
+            }
+            else
+            {
+                projectName = viewProjectsListBox.SelectedItem.ToString();
+                projectSelected = Project.projects.Find(p => p.name == projectName);
+
+                ChangeProject c = new ChangeProject();
+                Tools.openNewForm(this, c);
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            Project projectSelected;
+            String projectName;
+
+            if (viewProjectsListBox.SelectedItem == null)
+            {
+                MessageBox.Show("You must select a project", "WARNING", MessageBoxButtons.OK);
+            }
+            else
+            {
+                projectName = viewProjectsListBox.SelectedItem.ToString();
+                projectSelected = Project.projects.Find(p => p.name == projectName);
+
+                Project.projects.Remove(projectSelected);
+                viewProjectsListBox.Items.Remove(projectName);
+                MessageBox.Show("Project deleted", "SUCCESS", MessageBoxButtons.OK);
+
+                showProjects();
+            }
+        }
+
     }
 }

@@ -33,7 +33,9 @@
             label1 = new Label();
             label2 = new Label();
             viewTasksListBox = new ListBox();
-            button1 = new Button();
+            backButton = new Button();
+            editButton = new Button();
+            deleteButton = new Button();
             SuspendLayout();
             // 
             // viewProjectsListBox
@@ -81,14 +83,35 @@
             viewTasksListBox.Size = new Size(324, 379);
             viewTasksListBox.TabIndex = 3;
             // 
-            // button1
+            // backButton
             // 
-            button1.Location = new Point(12, 9);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 4;
-            button1.Text = "back";
-            button1.UseVisualStyleBackColor = true;
+            backButton.Location = new Point(33, 466);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(105, 35);
+            backButton.TabIndex = 4;
+            backButton.Text = "back";
+            backButton.UseVisualStyleBackColor = true;
+            backButton.Click += backButton_Click;
+            // 
+            // editButton
+            // 
+            editButton.Location = new Point(540, 466);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(105, 35);
+            editButton.TabIndex = 5;
+            editButton.Text = "Edit";
+            editButton.UseVisualStyleBackColor = true;
+            editButton.Click += editButton_Click;
+            // 
+            // deleteButton
+            // 
+            deleteButton.Location = new Point(676, 466);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(96, 35);
+            deleteButton.TabIndex = 6;
+            deleteButton.Text = "Delete";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
             // EditProjectscs
             // 
@@ -96,8 +119,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 450);
-            Controls.Add(button1);
+            ClientSize = new Size(826, 513);
+            Controls.Add(deleteButton);
+            Controls.Add(editButton);
+            Controls.Add(backButton);
             Controls.Add(viewTasksListBox);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -115,6 +140,8 @@
         private Label label1;
         private Label label2;
         private ListBox viewTasksListBox;
-        private Button button1;
+        private Button backButton;
+        private Button editButton;
+        private Button deleteButton;
     }
 }

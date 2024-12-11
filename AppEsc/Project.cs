@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppEsc
 {
-    internal class Project
+    public class Project
     {
         static public List<Project> projects = new List<Project>();
         public String name;
