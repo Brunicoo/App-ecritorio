@@ -53,16 +53,16 @@ namespace AppEsc
             {
                 if (task != null)
                 {
-                    viewTasksListBox.Items.Add("{Task name: " + task.taskname + " " + task.state + "}");
+                    viewTasksListBox.Items.Add("{Task name: " + task.taskname + " || " + task.state + "}");
                     foreach (var subtask in task.subTasks)
                     {
-                        if (subtask != null)
+                        if (subtask == null)
                         {
-                            viewTasksListBox.Items.Add("=> Subtask name: " + subtask.name);
+                            viewTasksListBox.Items.Add("0 subtasks assigned");         
                         }
                         else
                         {
-                            viewTasksListBox.Items.Add("0 subtasks assigned");
+                            viewTasksListBox.Items.Add("=> Subtask name: " + subtask.name);
                         }
                     }
                 }
@@ -92,7 +92,7 @@ namespace AppEsc
                 projectName = viewProjectsListBox.SelectedItem.ToString();
                 projectSelected = Project.projects.Find(p => p.name == projectName);
 
-                ChangeProject c = new ChangeProject();
+                ChangeProject c = new ChangeProject(projectSelected);
                 Tools.openNewForm(this, c);
             }
         }

@@ -51,7 +51,7 @@ namespace AppEsc
                     p.endDate = endDateProject.Value;
                     p.changeState(Project.ProjectState.toDo);
 
-                    t.taskname = taskNameTextBox.Text;
+                    t.taskname = taskNameTextBox.Text.Trim();
                     t.startDate = startDateTask.Value;
                     t.endDate = endDateTask.Value;
                     t.changeTaskState(Task.TaskState.toDo);

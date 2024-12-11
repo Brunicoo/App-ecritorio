@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppEsc
 {
-    internal class Tools
+    public class Tools
     {
         public static void openNewForm(Form actualForm, Form newForm)
         {
