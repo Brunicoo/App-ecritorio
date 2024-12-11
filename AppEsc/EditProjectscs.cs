@@ -66,8 +66,9 @@ namespace AppEsc
                         }
                     }
                 }
+                viewTasksListBox.Items.Add("-----------------------------------------------------------");
             }
-            viewTasksListBox.Items.Add("-----------------------------------------------------------");
+            
             viewTasksListBox.Font = new Font("Segoe UI", 15);
         }
 
