@@ -40,7 +40,6 @@ namespace AppEsc
                 string subtasks = "{" + string.Join(", ", task.subTasks.Select(sub => sub.name)) + "}";
                 string col = "{" + string.Join(", ", task.collaborators.Select(c => c.userName)) + "}";
 
-
                 dataGridViewTasks.Rows.Add(task.taskname, task.state, subtasks, col);
             }
         }
