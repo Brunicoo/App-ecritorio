@@ -47,11 +47,11 @@ namespace AppEsc
                     User.users.Add(user);
                     MessageBox.Show("User added", "Succes!", MessageBoxButtons.OK);
 
+                    Tools.writeJsonUsers();
+
                     Form2 f2 = new Form2();
-                    Tools.openNewForm(this, f2);
+                    Tools.openNewForm(this, f2); 
                 }
-
-
             }
         }
     }

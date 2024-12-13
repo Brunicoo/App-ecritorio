@@ -8,8 +8,8 @@ namespace AppEsc
 {
     public class SubTask
     {
-      public String name;
-      public DateTime startDate;
-      public DateTime endDate;
+      public String name { get; set; }
+        public DateTime startDate { get; set; }
+        public DateTime endDate { get; set; }
     }
 }

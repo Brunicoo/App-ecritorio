@@ -64,6 +64,8 @@ namespace AppEsc
             }
 
             project.tasks.Add(ta);
+
+            Tools.writeJsonProjects();
         }
 
 
@@ -191,6 +193,8 @@ namespace AppEsc
                 MessageBox.Show("Update succesful!", "SUCCES", MessageBoxButtons.OK);
                 showTasks();
                 panelChangeCollaborators.Visible = false;
+
+                Tools.writeJsonProjects();
             }
         }
 
@@ -221,6 +225,7 @@ namespace AppEsc
                 showTasks();
                 panel3.Visible = false;
 
+                Tools.writeJsonProjects();
             }
         }
     }

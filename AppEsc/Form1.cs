@@ -5,6 +5,8 @@ namespace AppEsc
         public Form1()
         {
             InitializeComponent();
+            Tools.readJsonUsers();
+            Tools.readJsonProjects();
         }
 
         private void signInButton_Click(object sender, EventArgs e)
