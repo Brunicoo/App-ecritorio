@@ -14,6 +14,7 @@ namespace AppEsc
     public partial class ChangeProject : Form
     {
         private Project project;
+        private Task t;
         public ChangeProject(Project p)
         {
             InitializeComponent();
@@ -21,6 +22,9 @@ namespace AppEsc
             addCollabsToList();
             changeLabel();
             showTasks();
+            dataGridViewTasks.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewTasks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewTasks.MultiSelect = false;
         }
 
         private void ChangeProject_Load(object sender, EventArgs e)
@@ -35,6 +39,7 @@ namespace AppEsc
 
         private void showTasks()
         {
+            dataGridViewTasks.Rows.Clear();
             foreach (var task in project.tasks)
             {
                 string subtasks = "{" + string.Join(", ", task.subTasks.Select(sub => sub.name)) + "}";
@@ -46,36 +51,76 @@ namespace AppEsc
 
         private void addTask()
         {
-            Task t = new Task();
-            t.taskname = textTaskName.Text.Trim();
-            t.startDate = startDateTask.Value;
-            t.endDate = endDateTask.Value;
-            t.changeTaskState(Task.TaskState.toDo);
+            Task ta = new Task();
+            ta.taskname = textTaskName.Text.Trim();
+            ta.startDate = startDateTask.Value;
+            ta.endDate = endDateTask.Value;
+            ta.changeTaskState(Task.TaskState.toDo);
 
             foreach (String collaboratorName in checkedListBoxCollaborators.CheckedItems)
             {
                 User selectedUser = User.users.Find(user => user.userName == collaboratorName);
-                t.collaborators.Add(selectedUser);
+                ta.collaborators.Add(selectedUser);
             }
 
-            project.tasks.Add(t);
+            project.tasks.Add(ta);
         }
 
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //añadir subtask
+            if (dataGridViewTasks.SelectedRows.Count > 0)
+            {
+                textBoxSubtask.Clear();
+                panel3.Visible = true;
+
+                DataGridViewRow selectedRow = dataGridViewTasks.SelectedRows[0];
+                String taskName = (String)selectedRow.Cells["taskNameColumn"].Value;
+
+                t = project.tasks.Find(t => t.taskname == taskName);
+            }
+            else
+            {
+                MessageBox.Show("Please select a row.", "WARNING", MessageBoxButtons.OK);
+            }
         }
 
         private void addTaskButton_Click(object sender, EventArgs e)
         {
             panel1.Visible = true;
+            panel1.Location = new Point(139, 28);
             addCollabsToList();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //añadir collab
+            if (dataGridViewTasks.SelectedRows.Count > 0)
+            {
+                panelChangeCollaborators.Visible = true;
+                panelChangeCollaborators.Location = new Point(505, 114);
+                checkedListBoxCol.Items.Clear();
+
+                DataGridViewRow selectedRow = dataGridViewTasks.SelectedRows[0];
+                String taskName = (String)selectedRow.Cells["taskNameColumn"].Value;
+
+
+                t = project.tasks.Find(t => t.taskname == taskName);
+
+                foreach (var c in User.users)
+                {
+                    checkedListBoxCol.Items.Add(c.userName);
+                    int index = checkedListBoxCol.Items.IndexOf(c.userName);
+
+                    if (t.collaborators.Contains(c))
+                    {
+                        checkedListBoxCol.SetItemChecked(index, true);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una fila.", "WARNING", MessageBoxButtons.OK);
+            }
         }
 
         private void buttonAccept_Click(object sender, EventArgs e)
@@ -99,6 +144,8 @@ namespace AppEsc
         }
         private void addCollabsToList()
         {
+            checkedListBoxCollaborators.Items.Clear();
+
             foreach (var user in User.users)
             {
                 checkedListBoxCollaborators.Items.Add(user.userName);
@@ -110,6 +157,71 @@ namespace AppEsc
             textTaskName.Clear();
             checkedListBoxCollaborators.Items.Clear();
             panel1.Visible = false;
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            Tools.openNewForm(this, f);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            panelChangeCollaborators.Visible = false;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (checkedListBoxCol.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("The project has to have any collaborator", "WARNING", MessageBoxButtons.OK);
+
+            }
+            else
+            {
+                t.collaborators.Clear();
+
+                foreach (var u in checkedListBoxCol.CheckedItems)
+                {
+                    String userName = (String)u;
+                    User user = User.users.Find(us => us.userName == userName);
+
+                    t.collaborators.Add(user);
+                }
+                MessageBox.Show("Update succesful!", "SUCCES", MessageBoxButtons.OK);
+                showTasks();
+                panelChangeCollaborators.Visible = false;
+            }
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if (textBoxSubtask.Text == "")
+            {
+                MessageBox.Show("You must write a subtask name", "WARNING", MessageBoxButtons.OK);
+            } else
+            {
+                SubTask s = new SubTask();
+                s.name = textBoxSubtask.Text;
+                s.startDate = dateTimePicker8.Value;
+                s.endDate = dateTimePicker8.Value;
+
+                t.subTasks.Add(s);
+                MessageBox.Show("Subtask added!", "SUCCES", MessageBoxButtons.OK);
+                showTasks();
+                panel3.Visible = false;
+
+            }
         }
     }
 }
