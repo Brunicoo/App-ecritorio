@@ -5,6 +5,7 @@ namespace AppEsc
         public Form1()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             Tools.readJsonUsers();
             Tools.readJsonProjects();
         }

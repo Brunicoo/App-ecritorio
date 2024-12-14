@@ -93,7 +93,6 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form2";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "w";
             ResumeLayout(false);
         }
 

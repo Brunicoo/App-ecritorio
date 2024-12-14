@@ -168,9 +168,7 @@ namespace AppEsc
             panel1.Controls.Add(label2);
             panel1.Controls.Add(textTaskName);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(201, 12);
-         panel1.Location = new Point(139, 457);
-
+            panel1.Location = new Point(139, 457);
             panel1.Name = "panel1";
             panel1.Size = new Size(366, 376);
             panel1.TabIndex = 5;
@@ -783,7 +781,6 @@ namespace AppEsc
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ChangeProject";
-            Text = "ChangeProject";
             Load += ChangeProject_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

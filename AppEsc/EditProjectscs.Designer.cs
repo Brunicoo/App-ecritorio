@@ -130,7 +130,6 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EditProjectscs";
-            Text = "EditProjectscs";
             ResumeLayout(false);
         }
 
