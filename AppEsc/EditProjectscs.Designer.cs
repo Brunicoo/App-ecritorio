@@ -44,9 +44,9 @@
             viewProjectsListBox.ForeColor = SystemColors.ControlText;
             viewProjectsListBox.FormattingEnabled = true;
             viewProjectsListBox.ItemHeight = 15;
-            viewProjectsListBox.Location = new Point(33, 59);
+            viewProjectsListBox.Location = new Point(58, 59);
             viewProjectsListBox.Name = "viewProjectsListBox";
-            viewProjectsListBox.Size = new Size(324, 379);
+            viewProjectsListBox.Size = new Size(299, 379);
             viewProjectsListBox.TabIndex = 0;
             viewProjectsListBox.SelectedIndexChanged += viewProjectsListBox_SelectedIndexChanged;
             // 
@@ -80,7 +80,7 @@
             viewTasksListBox.ItemHeight = 15;
             viewTasksListBox.Location = new Point(414, 59);
             viewTasksListBox.Name = "viewTasksListBox";
-            viewTasksListBox.Size = new Size(324, 379);
+            viewTasksListBox.Size = new Size(400, 379);
             viewTasksListBox.TabIndex = 3;
             // 
             // backButton
@@ -130,7 +130,6 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EditProjectscs";
-            Text = "EditProjectscs";
             ResumeLayout(false);
         }
 

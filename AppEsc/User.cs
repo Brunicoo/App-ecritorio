@@ -8,8 +8,8 @@ namespace AppEsc
 {
     public class User
     {
-        public String userName;
-        public String password;
+        public string userName { get; set; }
+        public string password { get; set; }
         static public List<User> users = new List<User>();
 
         public User(String username, String password)

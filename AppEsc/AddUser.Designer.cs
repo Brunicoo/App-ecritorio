@@ -141,7 +141,6 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "AddUser";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "AddUser";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

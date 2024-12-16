@@ -75,6 +75,8 @@ namespace AppEsc
                     {
                         checkedListBoxCollaborators.SetItemChecked(index, false);
                     }
+
+                    Tools.writeJsonProjects();
                 }
             }
         }

@@ -117,6 +117,8 @@ namespace AppEsc
                 MessageBox.Show("Project deleted", "SUCCESS", MessageBoxButtons.OK);
 
                 showProjects();
+
+                Tools.writeJsonProjects();
             }
         }
 
