@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             viewUsersButton = new Button();
-            viewprojectsButton = new Button();
             AddUsersButton = new Button();
             AddProjectsButton = new Button();
             SuspendLayout();
@@ -42,27 +41,13 @@
             viewUsersButton.BackgroundImageLayout = ImageLayout.Stretch;
             viewUsersButton.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             viewUsersButton.ForeColor = Color.Black;
-            viewUsersButton.Location = new Point(398, 127);
+            viewUsersButton.Location = new Point(309, 171);
             viewUsersButton.Name = "viewUsersButton";
             viewUsersButton.Size = new Size(135, 64);
             viewUsersButton.TabIndex = 2;
             viewUsersButton.Text = "Edit projects";
             viewUsersButton.UseVisualStyleBackColor = false;
             viewUsersButton.Click += viewUsersButton_Click;
-            // 
-            // viewprojectsButton
-            // 
-            viewprojectsButton.BackColor = Color.Transparent;
-            viewprojectsButton.BackgroundImage = (Image)resources.GetObject("viewprojectsButton.BackgroundImage");
-            viewprojectsButton.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            viewprojectsButton.ForeColor = Color.Black;
-            viewprojectsButton.ImageAlign = ContentAlignment.TopCenter;
-            viewprojectsButton.Location = new Point(234, 127);
-            viewprojectsButton.Name = "viewprojectsButton";
-            viewprojectsButton.Size = new Size(140, 64);
-            viewprojectsButton.TabIndex = 1;
-            viewprojectsButton.Text = "View projects";
-            viewprojectsButton.UseVisualStyleBackColor = false;
             // 
             // AddUsersButton
             // 
@@ -71,7 +56,7 @@
             AddUsersButton.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddUsersButton.ForeColor = Color.Black;
             AddUsersButton.ImageAlign = ContentAlignment.TopCenter;
-            AddUsersButton.Location = new Point(234, 215);
+            AddUsersButton.Location = new Point(75, 171);
             AddUsersButton.Name = "AddUsersButton";
             AddUsersButton.Size = new Size(140, 64);
             AddUsersButton.TabIndex = 4;
@@ -86,7 +71,7 @@
             AddProjectsButton.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddProjectsButton.ForeColor = Color.Black;
             AddProjectsButton.ImageAlign = ContentAlignment.TopCenter;
-            AddProjectsButton.Location = new Point(398, 215);
+            AddProjectsButton.Location = new Point(531, 171);
             AddProjectsButton.Name = "AddProjectsButton";
             AddProjectsButton.Size = new Size(140, 64);
             AddProjectsButton.TabIndex = 5;
@@ -104,7 +89,6 @@
             Controls.Add(AddProjectsButton);
             Controls.Add(AddUsersButton);
             Controls.Add(viewUsersButton);
-            Controls.Add(viewprojectsButton);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form2";
@@ -114,7 +98,6 @@
         }
 
         #endregion
-        private Button viewprojectsButton;
         private Button viewUsersButton;
         private PictureBox pictureBox1;
         private Button AddUsersButton;
