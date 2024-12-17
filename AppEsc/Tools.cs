@@ -20,50 +20,57 @@ namespace AppEsc
             newForm.Show();
             actualForm.Hide();
         }
-
+         
         public static void readJsonProjects()
         {
-            try
-            {
-                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "projects.json");
-                string encryptedJson = File.ReadAllText(filePath);
-                string decryptedJson = DecryptString(encryptedJson);
+           string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Json", "projects.json");
+           string encryptedJson = File.ReadAllText(filePath);
+           string decryptedJson = DecryptString(encryptedJson);
 
-                Project.projects = JsonSerializer.Deserialize<List<Project>>(decryptedJson);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al leer el archivo: {ex.Message}");
-            }
+           Project.projects = JsonSerializer.Deserialize<List<Project>>(decryptedJson);
         }
-
 
         public static void readJsonUsers()
         {
-            try
-            {
-                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "users.json");
-                string encryptedJson = File.ReadAllText(filePath);
-                string decryptedJson = Tools.DecryptString(encryptedJson);
-                User.users = JsonSerializer.Deserialize<List<User>>(decryptedJson);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al leer el archivo: {ex.Message}");
-            }
+           string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Json", "users.json");
+           string encryptedJson = File.ReadAllText(filePath);
+           string decryptedJson = Tools.DecryptString(encryptedJson);
+
+           User.users = JsonSerializer.Deserialize<List<User>>(decryptedJson);
         }
+
 
         public static void writeJsonProjects()
         {
+            MessageBox.Show($"ESCRIBIENDO...");
             try
             {
-                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "projects.json");
+                // Aquí usamos AppDomain.CurrentDomain.BaseDirectory para obtener la raíz del proyecto
+                string rootPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\.."));
+                string jsonFolderPath = Path.Combine(rootPath, "Json");
+
+                // Verifica si la carpeta Json existe. Si no, la crea.
+                if (!Directory.Exists(jsonFolderPath))
+                {
+                    Directory.CreateDirectory(jsonFolderPath);
+                }
+
+                // Define la ruta donde se guardará el archivo
+                string filePath = Path.Combine(jsonFolderPath, "projects.json");
+
+                // Serializa el objeto Project.projects a JSON con una estructura legible
                 string jsonString = JsonSerializer.Serialize(Project.projects, new JsonSerializerOptions { WriteIndented = true });
+
+                // Encripta el JSON antes de guardarlo
                 string encryptedJson = EncryptString(jsonString);
+
+                // Escribe el JSON encriptado en el archivo
                 File.WriteAllText(filePath, encryptedJson);
+                MessageBox.Show($"ESCRITO");
             }
             catch (Exception ex)
             {
+                // Muestra un mensaje de error en caso de fallar
                 MessageBox.Show($"Error al escribir el archivo: {ex.Message}");
             }
         }
@@ -71,18 +78,39 @@ namespace AppEsc
 
         public static void writeJsonUsers()
         {
+            MessageBox.Show($"ESCRIBIENDO...");
             try
             {
-                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "users.json");
+                // Aquí usamos AppDomain.CurrentDomain.BaseDirectory para obtener la raíz del proyecto
+                string rootPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\.."));
+                string jsonFolderPath = Path.Combine(rootPath, "Json");
+
+                // Verifica si la carpeta Json existe. Si no, la crea.
+                if (!Directory.Exists(jsonFolderPath))
+                {
+                    Directory.CreateDirectory(jsonFolderPath);
+                }
+
+                // Define la ruta donde se guardará el archivo de usuarios
+                string filePath = Path.Combine(jsonFolderPath, "users.json");
+
+                // Serializa el objeto User.users a JSON con una estructura legible
                 string jsonString = JsonSerializer.Serialize(User.users, new JsonSerializerOptions { WriteIndented = true });
+
+                // Encripta el JSON antes de guardarlo
                 string encryptedJson = EncryptString(jsonString);
+
+                // Escribe el JSON encriptado en el archivo
                 File.WriteAllText(filePath, encryptedJson);
+                MessageBox.Show($"ESCRITO");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al escribir el archivo: {ex.Message}");
+                // Muestra un mensaje de error en caso de fallar
+                MessageBox.Show($"Error al escribir el archivo de usuarios: {ex.Message}");
             }
         }
+
 
         public static string EncryptString(string plainText)
         {

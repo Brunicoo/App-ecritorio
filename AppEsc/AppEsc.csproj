@@ -12,4 +12,13 @@
     <None Remove="users.json" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Json\projects.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Json\users.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

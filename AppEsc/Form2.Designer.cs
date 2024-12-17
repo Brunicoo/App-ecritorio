@@ -41,11 +41,8 @@
             viewUsersButton.BackgroundImageLayout = ImageLayout.Stretch;
             viewUsersButton.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             viewUsersButton.ForeColor = Color.Black;
-<<<<<<< HEAD
             viewUsersButton.Location = new Point(309, 171);
-=======
             viewUsersButton.Location = new Point(302, 193);
->>>>>>> d01a78aa0ad0e1566e2f46594d4eef25b87c269e
             viewUsersButton.Name = "viewUsersButton";
             viewUsersButton.Size = new Size(163, 86);
             viewUsersButton.TabIndex = 2;
@@ -60,11 +57,8 @@
             AddUsersButton.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddUsersButton.ForeColor = Color.Black;
             AddUsersButton.ImageAlign = ContentAlignment.TopCenter;
-<<<<<<< HEAD
             AddUsersButton.Location = new Point(75, 171);
-=======
             AddUsersButton.Location = new Point(41, 193);
->>>>>>> d01a78aa0ad0e1566e2f46594d4eef25b87c269e
             AddUsersButton.Name = "AddUsersButton";
             AddUsersButton.Size = new Size(163, 86);
             AddUsersButton.TabIndex = 4;
@@ -79,11 +73,9 @@
             AddProjectsButton.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddProjectsButton.ForeColor = Color.Black;
             AddProjectsButton.ImageAlign = ContentAlignment.TopCenter;
-<<<<<<< HEAD
+
             AddProjectsButton.Location = new Point(531, 171);
-=======
             AddProjectsButton.Location = new Point(574, 193);
->>>>>>> d01a78aa0ad0e1566e2f46594d4eef25b87c269e
             AddProjectsButton.Name = "AddProjectsButton";
             AddProjectsButton.Size = new Size(163, 86);
             AddProjectsButton.TabIndex = 5;
